@@ -128,7 +128,7 @@ export class MonthlyReportService {
   }
 
   async getDashboardSummary(): Promise<DashboardSummary> {
-    const allReports = await this.db.select().from(monthlyReport);
+    const allReports: any[] = await this.db.select().from(monthlyReport);
 
     const totalReports = allReports.length;
     const draftCount = allReports.filter((r: any) => r.status === 'draft').length;
